@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker Web Server Project - Vivek</title>
+
+<style>
+*{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+}
+
+body{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background:#f4f7fc;
+   color:#333;
+   line-height:1.7;
+}
+
+header{
+   background:linear-gradient(135deg,#0f172a,#2563eb);
+   color:white;
+   text-align:center;
+   padding:50px 20px;
+}
+
+header h1{
+   font-size:42px;
+   margin-bottom:10px;
+}
+
+header p{
+   font-size:18px;
+}
+
+.container{
+   width:90%;
+   max-width:1200px;
+   margin:auto;
+   padding:30px 0;
+}
+
+.card{
+   background:white;
+   margin-bottom:25px;
+   padding:25px;
+   border-radius:12px;
+   box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h2{
+   color:#2563eb;
+   margin-bottom:15px;
+   border-left:5px solid #2563eb;
+   padding-left:10px;
+}
+
+ul{
+   margin-left:25px;
+}
+
+li{
+   margin-bottom:10px;
+}
+
+.highlight{
+   color:#2563eb;
+   font-weight:bold;
+}
+
+footer{
+   background:#0f172a;
+   color:white;
+   text-align:center;
+   padding:20px;
+   margin-top:30px;
+}
+
+table{
+   width:100%;
+   border-collapse:collapse;
+   margin-top:15px;
+}
+
+table, th, td{
+   border:1px solid #ddd;
+}
+
+th{
+   background:#2563eb;
+   color:white;
+}
+
+th, td{
+   padding:12px;
+   text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Docker Web Server Project</h1>
+    <p>Task 4 - Deploying a Web Server Using Docker Containers</p>
+    <p><strong>Name:</strong> Vivek</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Project Overview</h2>
+<p>
+This project demonstrates the deployment of a web server using Docker
+containerization technology. The objective was to learn Docker basics,
+deploy an Nginx web server, monitor container health, manage container
+lifecycle operations, and understand real-world application deployment
+practices using containers.
+</p>
+</div>
+
+<div class="card">
+<h2>Project Objectives</h2>
+<ul>
+<li>Learn Docker containerization fundamentals.</li>
+<li>Deploy and manage a web server using Docker.</li>
+<li>Understand Docker container lifecycle management.</li>
+<li>Monitor container health and resource consumption.</li>
+<li>Troubleshoot Docker-related issues.</li>
+<li>Implement best practices for containerized deployments.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Environment Setup</h2>
+
+<table>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Operating System</td>
+<td>Ubuntu on WSL2</td>
+</tr>
+
+<tr>
+<td>Container Platform</td>
+<td>Docker Engine</td>
+</tr>
+
+<tr>
+<td>Web Server</td>
+<td>Nginx</td>
+</tr>
+
+<tr>
+<td>Browser Testing</td>
+<td>localhost:8081</td>
+</tr>
+
+<tr>
+<td>Additional Service</td>
+<td>Jenkins running on port 8080</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+<h2>Implementation Steps</h2>
+
+<ol>
+
+<li>
+Installed and verified Docker using the Hello-World container.
+</li>
+
+<li>
+Pulled the official Nginx image from Docker Hub.
+</li>
+
+<li>
+Created and managed Docker containers.
+</li>
+
+<li>
+Mapped container port 80 to host port 8081 because port 8080 was already occupied by Jenkins.
+</li>
+
+<li>
+Started and monitored the Nginx web server.
+</li>
+
+<li>
+Accessed the server through a web browser.
+</li>
+
+<li>
+Explored container shell access using Docker Exec.
+</li>
+
+<li>
+Analysed logs, statistics, and configuration details.
+</li>
+
+</ol>
+
+</div>
+
+<div class="card">
+<h2>Docker Commands Used</h2>
+
+<ul>
+<li>docker run hello-world</li>
+<li>docker pull nginx</li>
+<li>docker images</li>
+<li>docker ps</li>
+<li>docker run -d --name webserver -p 8081:80 nginx</li>
+<li>docker logs webserver</li>
+<li>docker stats webserver</li>
+<li>docker inspect webserver</li>
+<li>docker exec -it webserver bash</li>
+<li>docker stop webserver</li>
+<li>docker start webserver</li>
+<li>docker rm webserver</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Challenges Faced</h2>
+
+<ul>
+
+<li>
+Docker socket permission denied issue.
+</li>
+
+<li>
+Docker group membership configuration.
+</li>
+
+<li>
+Port conflict with Jenkins on port 8080.
+</li>
+
+<li>
+Container name conflict during recreation.
+</li>
+
+<li>
+Learning Docker command syntax and lifecycle management.
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Solutions Applied</h2>
+
+<ul>
+
+<li>
+Added the current user to Docker group.
+</li>
+
+<li>
+Restarted WSL session to refresh permissions.
+</li>
+
+<li>
+Used port 8081 instead of 8080 due to Jenkins occupancy.
+</li>
+
+<li>
+Removed conflicting containers and recreated them correctly.
+</li>
+
+<li>
+Verified deployment using browser testing and Docker monitoring commands.
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Monitoring and Troubleshooting</h2>
+
+<p>
+The Docker container was monitored using container logs, statistics,
+inspection reports, and interactive shell access. Resource utilization,
+network configuration, process information, and server response were
+validated successfully.
+</p>
+
+<ul>
+<li>Container Logs - docker logs webserver</li>
+<li>Resource Monitoring - docker stats webserver</li>
+<li>Container Inspection - docker inspect webserver</li>
+<li>Container Access - docker exec -it webserver bash</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Project Outcome</h2>
+
+<p>
+The Nginx web server was successfully deployed within a Docker container.
+Port mapping was configured successfully on port 8081. The container
+remained operational and accessible via a web browser, demonstrating the
+practical implementation of Docker containerization technology.
+</p>
+
+<p>
+The project enhanced understanding of image management, container
+deployment, lifecycle management, networking, volume concepts,
+monitoring, and troubleshooting in Docker environments.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Conclusion</h2>
+
+<p>
+This project successfully demonstrated the use of Docker for deploying
+and managing a web server. By using containerization, applications can
+be deployed consistently across environments while maintaining
+portability, scalability, and ease of management. Docker simplifies
+application deployment and is a fundamental technology in modern DevOps
+and cloud-native development workflows.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 | Docker Web Server Project | Created by Vivek
+</footer>
+
+</body>
+</html>
